@@ -6,27 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/KevinCastejon/CustomAttributes/Demos/HeaderPlus/TestHeaderPlusAttribute.unity
+    path: Assets/KevinCastejon/MoreAttributes/Demos/HeaderPlus/TestHeaderPlusAttribute.unity
     guid: 900c306ad68e2dc4d9fdc12cd624fe5f
   - enabled: 1
-    path: Assets/KevinCastejon/CustomAttributes/Demos/HideOnPlay/TestHideOnPlayAttribute.unity
+    path: Assets/KevinCastejon/MoreAttributes/Demos/HideOnPlay/TestHideOnPlayAttribute.unity
     guid: f74a27be5a9c3304ab99236c4a79290d
   - enabled: 1
-    path: Assets/KevinCastejon/CustomAttributes/Demos/HideOnPrefab/TestHideOnPrefabAttribute.unity
+    path: Assets/KevinCastejon/MoreAttributes/Demos/HideOnPrefab/TestHideOnPrefabAttribute.unity
     guid: a1ca79e8097424041843d1b95179e608
   - enabled: 1
-    path: Assets/KevinCastejon/CustomAttributes/Demos/LabelPlus/TestLabelPlusAttribute.unity
+    path: Assets/KevinCastejon/MoreAttributes/Demos/LabelPlus/TestLabelPlusAttribute.unity
     guid: 6f63ff2c58bed1f47ab68f1ed35c5681
   - enabled: 1
-    path: Assets/KevinCastejon/CustomAttributes/Demos/ReadOnly/TestReadOnlyAttribute.unity
+    path: Assets/KevinCastejon/MoreAttributes/Demos/ReadOnly/TestReadOnlyAttribute.unity
     guid: c6886a47beac6c342b611c52c2b7c124
   - enabled: 1
-    path: Assets/KevinCastejon/CustomAttributes/Demos/ReadOnlyOnPlay/TestReadOnlyOnPlayAttribute.unity
+    path: Assets/KevinCastejon/MoreAttributes/Demos/ReadOnlyOnPlay/TestReadOnlyOnPlayAttribute.unity
     guid: 03daa9de5284c1a4282762a42b04772b
   - enabled: 1
-    path: Assets/KevinCastejon/CustomAttributes/Demos/ReadOnlyOnPrefab/TestReadOnlyOnPrefabAttribute.unity
+    path: Assets/KevinCastejon/MoreAttributes/Demos/ReadOnlyOnPrefab/TestReadOnlyOnPrefabAttribute.unity
     guid: 752687c8f8d2678418a8d385ea0e830e
   - enabled: 1
-    path: Assets/KevinCastejon/CustomAttributes/Demos/Tag/TestTagAttribute.unity
+    path: Assets/KevinCastejon/MoreAttributes/Demos/Tag/TestTagAttribute.unity
     guid: ff979006ae2e1de44a648fb1a744f8e3
   m_configObjects: {}
