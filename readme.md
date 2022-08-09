@@ -1,11 +1,11 @@
-# Custom Attributes
+# More Attributes
 
 A set of custom attributes with various functionalities.<BR/>
 They are all standalone and can be imported and used separately.
 
-[Get the UnityPackage!](https://github.com/kevincastejon/Unity-CustomAttributes/releases/download/1.0.0/KevinCastejon.CustomAttributes.unitypackage)
+[Get the UnityPackage!](https://github.com/kevincastejon/Unity-MoreAttributes/releases/download/1.0.0/KevinCastejon.MoreAttributes.unitypackage)
 
-[Documentation](https://kevincastejon.github.io/CustomAttributes/)
+[Documentation](https://kevincastejon.github.io/Unity-MoreAttributes/)
 
 
 ## List of attributes
