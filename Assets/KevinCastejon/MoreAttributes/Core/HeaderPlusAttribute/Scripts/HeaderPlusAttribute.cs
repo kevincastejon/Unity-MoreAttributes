@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace KevinCastejon.EditorToolbox
+namespace KevinCastejon.MoreAttributes
 {
     /// <summary>
     /// Convenience color presets. It must be casted to 'int' when passed as a parameter in HeaderPlusAttribute constructor.

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace KevinCastejon.EditorToolbox
+namespace KevinCastejon.MoreAttributes
 {
     /// <summary>
     /// Prevents a property from being edited on the inspector.

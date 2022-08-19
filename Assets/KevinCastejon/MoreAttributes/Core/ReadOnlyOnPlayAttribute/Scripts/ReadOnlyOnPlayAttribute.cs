@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace KevinCastejon.EditorToolbox
+namespace KevinCastejon.MoreAttributes
 {
     public class ReadOnlyOnPlayAttribute : PropertyAttribute
     {

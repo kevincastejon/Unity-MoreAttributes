@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace KevinCastejon.EditorToolbox
+namespace KevinCastejon.MoreAttributes
 {
     /// <summary>
     /// Displays a dropdown list of available build settings Scenes (must be used with a 'string' typed property).

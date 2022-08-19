@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace KevinCastejon.EditorToolbox
+namespace KevinCastejon.MoreAttributes
 {
     [CustomPropertyDrawer(typeof(LabelPlusAttribute))]
     public class LabelPlusDrawer : PropertyDrawer

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace KevinCastejon.EditorToolbox
+namespace KevinCastejon.MoreAttributes
 {
     /// <summary>
     /// Hides the property in PlayMode. The behaviour can be inverted with the 'invert' parameter so the property is visible only in PlayMode.

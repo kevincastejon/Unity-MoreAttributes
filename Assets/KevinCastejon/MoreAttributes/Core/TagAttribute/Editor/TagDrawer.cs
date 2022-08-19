@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace KevinCastejon.EditorToolbox
+namespace KevinCastejon.MoreAttributes
 {
     [CustomPropertyDrawer(typeof(TagAttribute))]
     public class TagDrawer : PropertyDrawer

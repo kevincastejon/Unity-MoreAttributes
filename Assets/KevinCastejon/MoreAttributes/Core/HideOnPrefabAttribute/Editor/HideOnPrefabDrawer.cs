@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEditor;
 
 
-namespace KevinCastejon.EditorToolbox
+namespace KevinCastejon.MoreAttributes
 {
     [CustomPropertyDrawer(typeof(HideOnPrefabAttribute))]
     public class HideOnPrefabDrawer : PropertyDrawer
