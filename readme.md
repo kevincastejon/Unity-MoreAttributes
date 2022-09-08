@@ -3,9 +3,6 @@
 A set of custom attributes with various functionalities.<BR/>
 They are all standalone and can be imported and used separately.
 
-[Documentation](https://kevincastejon.github.io/Unity-MoreAttributes/)
-
-
 ## List of attributes
 
 - [**LabelPlus**](/Assets/KevinCastejon/MoreAttributes/Documentation/LabelPlus/readme.md)<BR/>
