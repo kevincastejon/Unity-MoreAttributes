@@ -10,4 +10,4 @@ Put the attribute in front of a property.
 [Layer]
 public int _layer;
 ```
-![](img/LayerAttributeInspectorPreview.png)
+![](img/LayerAttributeInspectorPreview.PNG)
