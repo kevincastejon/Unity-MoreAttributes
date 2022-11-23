@@ -10,7 +10,7 @@ namespace KevinCastejon.MoreAttributes
         {
             if (property.propertyType != SerializedPropertyType.String)
             {
-                Debug.LogWarning("TagField attribute must be used with 'string' property type");
+                Debug.LogWarning("Tag attribute must be used with 'string' property type");
                 base.OnGUI(position, property, label);
                 return;
             }
