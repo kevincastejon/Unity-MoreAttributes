@@ -33,5 +33,9 @@ Hides the property in *PrefabMode*. The behaviour can be inverted with the 'inve
 - [**Tag**](/Assets/KevinCastejon/MoreAttributes/Documentation/Tag/readme.md)<BR/>
 Displays a dropdown list of available Tags (must be used with a 'string' typed property).
 
+- [**Layer**](/Assets/KevinCastejon/MoreAttributes/Documentation/Layer/readme.md)<BR/>
+Displays a dropdown list of available Layers (must be used with a 'int' typed property).
+It offers a single layer selection instead of the multiple LayerMask selection.
+
 - [**Scene**](/Assets/KevinCastejon/MoreAttributes/Documentation/Scene/readme.md)<BR/>
 Displays a dropdown list of available build settings Scenes (must be used with a 'string' typed property).
