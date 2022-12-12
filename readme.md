@@ -9,6 +9,8 @@ They are all standalone and can be imported and used separately.
 
 [Get the Unity package](https://github.com/kevincastejon/Unity-MoreAttributes/releases/tag/v1.0)
 
+[See my other Unity packages](https://assetstore.unity.com/publishers/46935)
+
 ## List of attributes
 
 - [**LabelPlus**](/Assets/KevinCastejon/MoreAttributes/Documentation/LabelPlus/readme.md)<BR/>
