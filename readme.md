@@ -3,7 +3,7 @@
 A set of custom attributes with various functionalities.<BR/>
 They are all standalone and can be imported and used separately.
 
-[See online documentation here](https://kevincastejon.github.io/Unity-MoreAttributes/)
+[See online documentation](https://kevincastejon.github.io/Unity-MoreAttributes/)
 
 [Get it on the Asset Store](https://assetstore.unity.com/packages/tools/utilities/more-attributes-229818)
 
