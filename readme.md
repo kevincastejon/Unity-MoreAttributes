@@ -11,7 +11,7 @@ They are all standalone and can be imported and used separately.
 
 [See my other Unity packages](https://assetstore.unity.com/publishers/46935)
 
-## List of attributes
+## Custom attributes list :
 
 - [**LabelPlus**](/Assets/KevinCastejon/MoreAttributes/Documentation/LabelPlus/readme.md)<BR/>
 Custom *Inspector* property label that allows using an icon, a custom label text and a custom label color.
