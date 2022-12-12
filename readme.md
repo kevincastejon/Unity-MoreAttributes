@@ -7,7 +7,7 @@ They are all standalone and can be imported and used separately.
 
 [Get it on the Asset Store](https://assetstore.unity.com/packages/tools/utilities/more-attributes-229818)
 
-[Get the Unity package](https://github.com/kevincastejon/Unity-MoreAttributes/releases/tag/v1.0)
+[Get the Unity package](https://github.com/kevincastejon/Unity-MoreAttributes/releases/latest)
 
 [See my other Unity packages](https://assetstore.unity.com/publishers/46935)
 
