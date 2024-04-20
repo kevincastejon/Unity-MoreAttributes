@@ -2,8 +2,10 @@ using KevinCastejon.MoreAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class TestSceneAttribute : MonoBehaviour
+namespace KevinCastejon.MoreAttributes.Examples
 {
-    [Scene] [SerializeField] private string _scene;
+    public class TestSceneAttribute : MonoBehaviour
+    {
+        [Scene][SerializeField] private string _scene;
+    }
 }

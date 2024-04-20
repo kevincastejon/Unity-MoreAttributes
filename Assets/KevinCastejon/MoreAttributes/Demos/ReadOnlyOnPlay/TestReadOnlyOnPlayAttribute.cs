@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using KevinCastejon.MoreAttributes;
-
-public class TestReadOnlyOnPlayAttribute : MonoBehaviour
+namespace KevinCastejon.MoreAttributes.Examples
 {
-    [ReadOnlyOnPlay]
-    [SerializeField] private int _healthPoints;
+    public class TestReadOnlyOnPlayAttribute : MonoBehaviour
+    {
+        [ReadOnlyOnPlay]
+        [SerializeField] private int _healthPoints;
 
-    [ReadOnlyOnPlay(true)]
-    [SerializeField] private int _damages;
+        [ReadOnlyOnPlay(true)]
+        [SerializeField] private int _damages;
+    }
 }

@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using KevinCastejon.MoreAttributes;
-
-public class TestHideOnPlayAttribute: MonoBehaviour
+namespace KevinCastejon.MoreAttributes.Examples
 {
-    [HideOnPlay]
-    [SerializeField] private int _healthPoints;
+    public class TestHideOnPlayAttribute : MonoBehaviour
+    {
+        [HideOnPlay]
+        [SerializeField] private int _healthPoints;
 
-    [HideOnPlay(true)]
-    [SerializeField] private int _damages;
+        [HideOnPlay(true)]
+        [SerializeField] private int _damages;
+    }
 }

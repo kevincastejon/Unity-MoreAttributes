@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/KevinCastejon/MoreAttributes/Demos/LabelPlus/TestLabelPlusAttribute.unity
     guid: 6f63ff2c58bed1f47ab68f1ed35c5681
   - enabled: 1
-    path: Assets/KevinCastejon/MoreAttributes/Demos/ReadOnly/TestReadOnlyAttribute.unity
+    path: Assets/KevinCastejon/MoreAttributes/Demos/ReadOnlyProp/TestReadOnlyPropAttribute.unity
     guid: c6886a47beac6c342b611c52c2b7c124
   - enabled: 1
     path: Assets/KevinCastejon/MoreAttributes/Demos/ReadOnlyOnPlay/TestReadOnlyOnPlayAttribute.unity

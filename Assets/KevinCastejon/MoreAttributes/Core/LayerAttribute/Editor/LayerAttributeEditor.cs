@@ -1,17 +1,19 @@
 using UnityEditor;
 using UnityEngine;
-
-[CustomPropertyDrawer(typeof(LayerAttribute))]
-class LayerAttributeEditor : PropertyDrawer
+namespace KevinCastejon.MoreAttributes
 {
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    [CustomPropertyDrawer(typeof(LayerAttribute))]
+    class LayerAttributeEditor : PropertyDrawer
     {
-        if (property.propertyType != SerializedPropertyType.Integer)
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            Debug.LogWarning("Layer attribute must be used with 'int' property type");
-            base.OnGUI(position, property, label);
-            return;
+            if (property.propertyType != SerializedPropertyType.Integer)
+            {
+                Debug.LogWarning("Layer attribute must be used with 'int' property type");
+                base.OnGUI(position, property, label);
+                return;
+            }
+            property.intValue = EditorGUI.LayerField(position, label, property.intValue);
         }
-        property.intValue = EditorGUI.LayerField(position, label, property.intValue);
     }
 }

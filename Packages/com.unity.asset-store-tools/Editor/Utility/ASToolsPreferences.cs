@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-namespace AssetStoreTools.Utility {
+namespace AssetStoreTools.Utility
+{
 
-    public class ASToolsPreferences
+    internal class ASToolsPreferences
     {
         private static ASToolsPreferences s_instance;
         public static ASToolsPreferences Instance => s_instance ?? (s_instance = new ASToolsPreferences());
 
+        public static event Action OnSettingsChange;
+        
         private ASToolsPreferences()
         {
             Load();
@@ -19,19 +21,34 @@ namespace AssetStoreTools.Utility {
 
         private void Load()
         {
+            CheckForUpdates = PlayerPrefs.GetInt("AST_CheckForUpdates", 1) == 1;
             LegacyVersionCheck = PlayerPrefs.GetInt("AST_LegacyVersionCheck", 1) == 1;
             UploadVersionCheck = PlayerPrefs.GetInt("AST_UploadVersionCheck", 1) == 1;
+            DisplayHiddenMetaDialog = PlayerPrefs.GetInt("AST_HiddenFolderMetaCheck", 1) == 1;
             EnableSymlinkSupport = PlayerPrefs.GetInt("AST_EnableSymlinkSupport", 0) == 1;
-            UseCustomExporting = PlayerPrefs.GetInt("AST_UseCustomExporting", 0) == 1;
+            UseLegacyExporting = PlayerPrefs.GetInt("AST_UseLegacyExporting", 0) == 1;
+            DisplayUploadDialog = PlayerPrefs.GetInt("AST_DisplayUploadDialog", 0) == 1;
         }
 
-        public void Save()
+        public void Save(bool triggerSettingsChange = false)
         {
+            PlayerPrefs.SetInt("AST_CheckForUpdates", CheckForUpdates ? 1 : 0);
             PlayerPrefs.SetInt("AST_LegacyVersionCheck", LegacyVersionCheck ? 1 : 0);
             PlayerPrefs.SetInt("AST_UploadVersionCheck", UploadVersionCheck ? 1 : 0);
+            PlayerPrefs.SetInt("AST_HiddenFolderMetaCheck", DisplayHiddenMetaDialog ? 1 : 0);
             PlayerPrefs.SetInt("AST_EnableSymlinkSupport", EnableSymlinkSupport ? 1 : 0);
-            PlayerPrefs.SetInt("AST_UseCustomExporting", UseCustomExporting ? 1 : 0);
+            PlayerPrefs.SetInt("AST_UseLegacyExporting", UseLegacyExporting ? 1 : 0);
+            PlayerPrefs.SetInt("AST_DisplayUploadDialog", DisplayUploadDialog ? 1 : 0);
+            PlayerPrefs.Save();
+
+            if(triggerSettingsChange)
+                OnSettingsChange?.Invoke();
         }
+
+        /// <summary>
+        /// Periodically check if an update for the Asset Store Publishing Tools is available
+        /// </summary>
+        public bool CheckForUpdates;
 
         /// <summary>
         /// Check if legacy Asset Store Tools are in the Project
@@ -44,26 +61,39 @@ namespace AssetStoreTools.Utility {
         public bool UploadVersionCheck;
 
         /// <summary>
+        /// Enables a DisplayDialog when hidden folders are found to be missing meta files
+        /// </summary>
+        public bool DisplayHiddenMetaDialog;
+
+        /// <summary>
         /// Enables Junction symlink support
         /// </summary>
         public bool EnableSymlinkSupport;
 
         /// <summary>
-        /// Enables custom exporting for Folder Upload workflow
+        /// Enables legacy exporting for Folder Upload workflow
         /// </summary>
-        public bool UseCustomExporting;
+        public bool UseLegacyExporting;
+        
+        /// <summary>
+        /// Enables DisplayDialog to be shown after the uploading ends
+        /// </summary>
+        public bool DisplayUploadDialog;
     }
     
-    public class ASToolsPreferencesProvider : SettingsProvider
+    internal class ASToolsPreferencesProvider : SettingsProvider
     {
         private const string SettingsPath = "Project/Asset Store Tools";
         
         private class Styles
         {
+            public static readonly GUIContent CheckForUpdatesLabel = EditorGUIUtility.TrTextContent("Check for Updates", "Periodically check if an update for the Asset Store Publishing Tools is available.");
             public static readonly GUIContent LegacyVersionCheckLabel = EditorGUIUtility.TrTextContent("Legacy ASTools Check", "Enable Legacy Asset Store Tools version checking.");
             public static readonly GUIContent UploadVersionCheckLabel = EditorGUIUtility.TrTextContent("Upload Version Check", "Check if the package has been uploader from a correct Unity version at least once.");
+            public static readonly GUIContent DisplayHiddenMetaDialogLabel = EditorGUIUtility.TrTextContent("Display Hidden Folder Meta Dialog", "Show a DisplayDialog when hidden folders are found to be missing meta files.\nNote: this only affects hidden folders ending with a '~' character");
             public static readonly GUIContent EnableSymlinkSupportLabel = EditorGUIUtility.TrTextContent("Enable Symlink Support", "Enable Junction Symlink support. Note: folder selection validation will take longer.");
-            public static readonly GUIContent UseCustomExportingLabel = EditorGUIUtility.TrTextContent("Use Custom Exporting (Experimental)", "Enable Custom Exporting for the Folder Upload workflow. Note: it's a little bit faster than regular, but might miss some Asset previews in the final product. Does not affect the functionality of the exported package.");
+            public static readonly GUIContent UseLegacyExportingLabel = EditorGUIUtility.TrTextContent("Use Legacy Exporting", "Enabling this option uses native Unity methods when exporting packages for the Folder Upload workflow.\nNote: individual package dependency selection when choosing to 'Include Package Manifest' is unavailable when this option is enabled.");
+            public static readonly GUIContent DisplayUploadDialogLabel = EditorGUIUtility.TrTextContent("Display Upload Dialog", "Show a DisplayDialog after the package uploading has finished.");
         }
 
         public static void OpenSettings()
@@ -80,24 +110,17 @@ namespace AssetStoreTools.Utility {
             EditorGUI.BeginChangeCheck();
             using (CreateSettingsWindowGUIScope())
             {
+                preferences.CheckForUpdates = EditorGUILayout.Toggle(Styles.CheckForUpdatesLabel, preferences.CheckForUpdates);
                 preferences.LegacyVersionCheck = EditorGUILayout.Toggle(Styles.LegacyVersionCheckLabel, preferences.LegacyVersionCheck);
                 preferences.UploadVersionCheck = EditorGUILayout.Toggle(Styles.UploadVersionCheckLabel, preferences.UploadVersionCheck);
+                preferences.DisplayHiddenMetaDialog = EditorGUILayout.Toggle(Styles.DisplayHiddenMetaDialogLabel, preferences.DisplayHiddenMetaDialog);
                 preferences.EnableSymlinkSupport = EditorGUILayout.Toggle(Styles.EnableSymlinkSupportLabel, preferences.EnableSymlinkSupport);
-                preferences.UseCustomExporting = EditorGUILayout.Toggle(Styles.UseCustomExportingLabel, preferences.UseCustomExporting);
-
-                if (preferences.UseCustomExporting)
-                {
-                    var cstExpWarning = "Custom exporter is an experimental feature. " + 
-                    "It packs selected Assets without using the native Unity API and is observed to be slightly faster.\n\n" +
-                    "Please note that Asset preview images used to showcase specific asset types (Textures, Materials, Prefabs) before importing the package " +
-                    "might not be generated consistently at this time. This does not affect functionality of the package after it gets imported.";
-                    
-                    EditorGUILayout.HelpBox(cstExpWarning, MessageType.Warning, true);
-                }
+                preferences.UseLegacyExporting = EditorGUILayout.Toggle(Styles.UseLegacyExportingLabel, preferences.UseLegacyExporting);
+                preferences.DisplayUploadDialog = EditorGUILayout.Toggle(Styles.DisplayUploadDialogLabel, preferences.DisplayUploadDialog);
             }
 
             if (EditorGUI.EndChangeCheck())
-                ASToolsPreferences.Instance.Save();
+                ASToolsPreferences.Instance.Save(true);
         }
         
         [SettingsProvider]
