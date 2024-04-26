@@ -19,7 +19,7 @@ Custom *Inspector* property label that allows using an icon, a custom label text
 - [**HeaderPlus**](/Assets/KevinCastejon/MoreAttributes/Documentation/HeaderPlus/readme.md)<BR/>
 Custom *Inspector* property header that allows using an icon, a custom header label text and a custom header label color.
 
-- [**ReadOnly**](/Assets/KevinCastejon/MoreAttributes/Documentation/ReadOnly/readme.md)<BR/>
+- [**ReadOnlyProp**](/Assets/KevinCastejon/MoreAttributes/Documentation/ReadOnlyProp/readme.md)<BR/>
 Prevents a property from being edited on the *Inspector*.
 
 - [**ReadOnlyOnPlay**](/Assets/KevinCastejon/MoreAttributes/Documentation/ReadOnlyOnPlay/readme.md)<BR/>
@@ -33,6 +33,12 @@ Hides the property in *PlayMode*. The behaviour can be inverted with the 'invert
 
 - [**HideOnPrefab**](/Assets/KevinCastejon/MoreAttributes/Documentation/HideOnPrefab/readme.md)<BR/>
 Hides the property in *PrefabMode*. The behaviour can be inverted with the 'invert' parameter so the property is visible only in *PrefabMode*.
+
+- [**ShowPropIf**](/Assets/KevinCastejon/MoreAttributes/Documentation/ShowPropIf/readme.md)<BR/>
+Shows or hides a property on the inspector based on another serialized bool property value.
+
+- [**ShowPropConditional**](/Assets/KevinCastejon/MoreAttributes/Documentation/ShowPropConditional/readme.md)<BR/>
+Shows or hides a property based on a bool method.
 
 - [**Tag**](/Assets/KevinCastejon/MoreAttributes/Documentation/Tag/readme.md)<BR/>
 Displays a dropdown list of available Tags (must be used with a 'string' typed property).
